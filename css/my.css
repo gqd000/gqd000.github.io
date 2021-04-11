@@ -5,7 +5,6 @@
     src: url('../font/myFont.ttf');
 }
 
-.diyFont {
+body {
     font-family: 'myFont';
-    font-size: 50px;
 }
