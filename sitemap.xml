@@ -102,14 +102,14 @@
 
   
   <url>
-    <loc>https://www.hexoblog.gq/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://www.hexoblog.gq/tags/test/</loc>
     <lastmod>2021-04-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.hexoblog.gq/tags/test/</loc>
+    <loc>https://www.hexoblog.gq/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2021-04-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -118,14 +118,14 @@
 
   
   <url>
-    <loc>https://www.hexoblog.gq/categories/Leetcode-%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/</loc>
+    <loc>https://www.hexoblog.gq/categories/test/</loc>
     <lastmod>2021-04-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.hexoblog.gq/categories/test/</loc>
+    <loc>https://www.hexoblog.gq/categories/Leetcode-%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/</loc>
     <lastmod>2021-04-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
