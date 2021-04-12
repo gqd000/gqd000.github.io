@@ -1,0 +1,29 @@
+<%- partial('_partial/bg-cover') %>
+    <title>碎语</title>
+    <main class="content">
+        <div id="contact" class="container chip-container">
+            <div class="card">
+                <div class="card-content">
+                    <div class="tag-title center-align">
+                        <i class="fas fa-comments-dollar"></i>&nbsp;&nbsp;
+                        <%= __('LittleTalk') %>
+                    </div>
+                    <%- page.suiyu %>
+                </div>
+            </div>
+            <div class="card">
+
+                <!-- 引用 artitalk -->
+                <script type="text/javascript" src="https://unpkg.com/artitalk"></script>
+                <!-- 存放说说的容器 -->
+                <div id="artitalk_main"></div>
+                <script>
+                    new Artitalk({
+                        appId: '2TJesVKwP0Bvp6wnmYxHi2RA-MdYXbMMI', // Your LeanCloud appId
+                        appKey: 'mfTaYabBr6jqtJLl20kbF2C0' // Your LeanCloud appKey
+                    })
+                </script>
+
+            </div>
+        </div>
+    </main>
