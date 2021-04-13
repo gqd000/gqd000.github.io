@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>解决git push速度慢的问题</title>
+      <link href="posts/3a4c.html"/>
+      <url>posts/3a4c.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="解决git-push速度慢的问题"><a href="#解决git-push速度慢的问题" class="headerlink" title="解决git push速度慢的问题"></a>解决git push速度慢的问题</h1><blockquote><p>今天更新一篇文章，内容比较多，所以在部署的过程中遇到了push速度慢的问题，即使kx上网全局也无济于事，最后通过查阅一些文章找到了解决方法。</p></blockquote><p>开始时，我用git协议部署，即使kx上网全局也会卡在Writing objects上：</p><p><img src="https://gitee.com/gqd000/blogimage/raw/master/img/image-20210413224633524.png" alt="image-20210413224633524"></p><p>后来查阅资料发现，git可以使用代理，但Windows配置git协议的代理比较麻烦，所以用了https协议来部署（https协议的代理比较容易配置<span class="github-emoji"><span>😂</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f602.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>）：<img src="https://gitee.com/gqd000/blogimage/raw/master/img/image-20210413224940881.png" alt="image-20210413224940881"></p><p>现在可以愉快的配置代理了:(</p><pre><code># 端口号根据自身情况决定# 需要鉴权git config http.proxy http://username:password@127.0.0.1:1080 # 需要鉴权# 非全局代理git config http.proxy http://127.0.0.1:1080# 全局代理（所有项目）git config --global http.proxy http://127.0.0.1:1080# 查看全局代理git config --get --global http.proxy</code></pre><p>好了，问题解决了，享受这丝滑吧！<span class="github-emoji"><span>😹</span><img src="https://github.githubassets.com/images/icons/emoji/unicode/1f639.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span><img src="https://gitee.com/gqd000/blogimage/raw/master/img/image-20210413225625508.png" alt="image-20210413225625508"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 搭建博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hexo+Github Pages+Vercel搭建博客(详细)</title>
       <link href="posts/c7e2.html"/>
       <url>posts/c7e2.html</url>
