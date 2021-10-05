@@ -530,7 +530,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-20
+                    2021-10-05
                 </div>
                 
 
@@ -609,7 +609,7 @@
 </blockquote>
 <p><strong>解题思路：</strong></p>
 <blockquote>
-<p>这道题我们不再需要排序，只需要<strong>左右两次遍历</strong>即可，设数组cano记录每个孩子分得的糖果数量，数组ratings记录孩子的评分。首先我们初始化cano数组为<strong>1</strong>（即初始为糖果总数最小值），然后对数组ratings<strong>从左向右（左条件）</strong>进行遍历，当ratings(i+1)&gt;ratings(i)时，cano(i+1)+1；最后对ratings进行<strong>从右向左（右条件）</strong>遍历，与左边不同的是，此次遍历不能直接更新数组cano的值，需要取更新值和原值中大的值，即:<br>$$<br>cano(i+1)= max(cano(i),cano(i+1))。<br>$$<br>这样做即可同时满足左条件和右条件。</p>
+<p>这道题我们不再需要排序，只需要<strong>左右两次遍历</strong>即可，设数组cano记录每个孩子分得的糖果数量，数组ratings记录孩子的评分。首先我们初始化cano数组为<strong>1</strong>（即初始为糖果总数最小值），然后对数组ratings<strong>从左向右（左条件）</strong>进行遍历，当<code>ratings[i+1]&gt;ratings[i]</code>时，<code>cano[i+1]+1</code>；最后对ratings进行<strong>从右向左（右条件）</strong>遍历，与左边不同的是，此次遍历不能直接更新数组cano的值，需要取更新值和原值中大的值，即:<br>$$<br>cano(i+1)= max(cano(i),cano(i+1))。<br>$$<br>这样做即可同时满足左条件和右条件。</p>
 </blockquote>
 <p><strong>解题代码：</strong></p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
@@ -628,7 +628,7 @@
 		<span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token operator">=</span> ct <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>i <span class="token operator">&gt;=</span> <span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">--</span><span class="token punctuation">)</span>
 		<span class="token punctuation">{</span>
 			j <span class="token operator">=</span> i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
-            <span class="token comment">//满足左规则后右规则可能会更新数据，因此取去最大值同时满足左右规则</span>
+            <span class="token comment">//满足左规则后右规则可能会更新数据，因此取最大值保证同时满足左右规则</span>
 			<span class="token keyword">if</span> <span class="token punctuation">(</span>ratings<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&gt;</span> ratings<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> cano<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">=</span><span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span>cano<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>cano<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 		<span class="token punctuation">}</span>
 		<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> it<span class="token operator">:</span>cano<span class="token punctuation">)</span>
