@@ -4,7 +4,7 @@
 
     <head>
         <meta charset="utf-8">
-        <meta name="keywords" content="标签, HTML,CSS,LeetCode,java,算法,电影,音乐,书,等等。">
+        <meta name="keywords" content="分类: Java学习, HTML,CSS,LeetCode,java,算法,电影,音乐,书,等等。">
         <meta name="description" content="记录生活,分享生活,记录知识,分享知识。">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
 
 
             <title>
-                标签 | 一袖南烟顾
+                分类: Java学习 | 一袖南烟顾
             </title>
             <link rel="icon" type="image/png" href="/favicon.png">
 
@@ -407,109 +407,150 @@
 
     
 
-<div id="tags" class="container chip-container">
+<div id="category-cloud" class="container chip-container">
     <div class="card">
         <div class="card-content">
             <div class="tag-title center-align">
-                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
+                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
             </div>
             <div class="tag-chips">
                 
                 
-                <a href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" title="博客搭建: 1">
+                
+                <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" title="博客搭建: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="博客搭建" style="background-color: #F9EBEA;">博客搭建
+                            style="background-color: #F9EBEA;">博客搭建
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/test/" title="test: 1">
+                <a href="/categories/test/" title="test: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="test" style="background-color: #F5EEF8;">test
+                            style="background-color: #F5EEF8;">test
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/Java/" title="Java: 3">
+                <a href="/categories/CodeBase/" title="CodeBase: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Java" style="background-color: #D5F5E3;">Java
-                        <span class="tag-length">3</span>
+                            style="background-color: #D5F5E3;">CodeBase
+                        <span class="tag-length">2</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/IDEA-LeetCode/" title="IDEA LeetCode: 1">
+                <a href="/categories/%E5%B7%A5%E5%85%B7/" title="工具: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="IDEA LeetCode" style="background-color: #E8F8F5;">IDEA LeetCode
+                            style="background-color: #E8F8F5;">工具
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" title="贪心算法: 1">
+                <a href="/categories/Leetcode-%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/" title="Leetcode-算法题解: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="贪心算法" style="background-color: #FEF9E7;">贪心算法
+                            style="background-color: #FEF9E7;">Leetcode-算法题解
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/Linux%E7%9B%B8%E5%85%B3/" title="Linux相关: 1">
+                <a href="/categories/Linux%E7%9B%B8%E5%85%B3/" title="Linux相关: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Linux相关" style="background-color: #F8F9F9;">Linux相关
+                            style="background-color: #F8F9F9;">Linux相关
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/git/" title="git: 1">
+                <a href="/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="搭建博客: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="git" style="background-color: #82E0AA;">git
+                            style="background-color: #82E0AA;">搭建博客
                         <span class="tag-length">1</span>
                     </span>
                 </a>
+                
+                
+                <a href="/categories/Java%E5%AD%A6%E4%B9%A0/" title="Java学习: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                            style="background-color: #D7BDE2;">Java学习
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
                 
             </div>
         </div>
     </div>
 </div>
 
-    
-    <link rel="stylesheet" type="text/css" href="/libs/jqcloud/jqcloud.css">
-<style type="text/css">
-    #tag-wordcloud {
-        width: 100%;
-        height: 300px;
-    }
-</style>
-
-<div class="container" data-aos="fade-up">
-    <div class="card">
-        <div id="tag-wordcloud" class="card-content"></div>
-    </div>
-</div>
-
-<script type="text/javascript" src="/libs/jqcloud/jqcloud-1.0.4.min.js"></script>
-<script type="text/javascript">
-    
-
-    $('#tag-wordcloud').jQCloud([{"text":"博客搭建","weight":1,"link":"/tags/博客搭建/"},{"text":"test","weight":1,"link":"/tags/test/"},{"text":"Java","weight":3,"link":"/tags/Java/"},{"text":"IDEA LeetCode","weight":1,"link":"/tags/IDEA-LeetCode/"},{"text":"贪心算法","weight":1,"link":"/tags/贪心算法/"},{"text":"Linux相关","weight":1,"link":"/tags/Linux相关/"},{"text":"git","weight":1,"link":"/tags/git/"}], {
-        autoResize: true
-    });
-</script>
 
     
 
+    <article id="articles" class="container articles">
+        <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/posts/1.html">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/images/loading.gif" data-original="/medias/featureimages/3.jpg" class="responsive-img" alt="Java笔记（一）">
+                            
+                            <span class="card-title">Java笔记（一）</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                Java面向对象初级及高级
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-02
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Java%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    Java学习
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Java/">
+                            <span class="chip bg-color">Java</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </article>
 </main>
+
+
 
 
     <footer class="page-footer bg-color">
