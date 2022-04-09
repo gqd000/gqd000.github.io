@@ -534,7 +534,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-05
+                    2022-04-09
                 </div>
                 
 
@@ -793,7 +793,7 @@
 <h3 id="多态的向上转型"><a href="#多态的向上转型" class="headerlink" title="多态的向上转型"></a>多态的向上转型</h3><ul>
 <li><p>本质：父类的引用指向子类的对象；</p>
 </li>
-<li><p><strong>语法：父类类型 引用名 = new 子类类型();</strong></p>
+<li><p><strong>语法：父类类型  引用名 = new 子类类型();</strong></p>
 </li>
 <li><p>特点：编译看左边，运行看右边；</p>
 </li>
@@ -805,7 +805,7 @@
 animal<span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//根据就近原则先去Animal中找相应的方法</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="多态的向下转型"><a href="#多态的向下转型" class="headerlink" title="多态的向下转型"></a>多态的向下转型</h3><ul>
-<li><p><strong>语法：子类类型    引用名  =  new  父类类型();</strong></p>
+<li><p><strong>语法：子类类型  引用名  =  (子类类型)  父类类型;</strong></p>
 </li>
 <li><p>只能强转父类的引用，不能强制父类的对象(对象创建后不再改变)；</p>
 </li>
