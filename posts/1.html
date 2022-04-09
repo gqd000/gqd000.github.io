@@ -805,7 +805,7 @@
 animal<span class="token punctuation">.</span><span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//根据就近原则先去Animal中找相应的方法</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="多态的向下转型"><a href="#多态的向下转型" class="headerlink" title="多态的向下转型"></a>多态的向下转型</h3><ul>
-<li><p><strong>语法：子类类型  引用名  =  (子类类型)  父类类型;</strong></p>
+<li><p><strong>语法：子类类型  引用名  =  (子类类型)  父类引用;</strong></p>
 </li>
 <li><p>只能强转父类的引用，不能强制父类的对象(对象创建后不再改变)；</p>
 </li>
@@ -814,7 +814,7 @@ animal<span class="token punctuation">.</span><span class="token function">eat</
 <li><p>要求父类的当前引用必须指向的是当前目标类型的对象。</p>
 </li>
 </ul>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Animal</span> animal <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//此时animal是指向cat类型的对象</span>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Animal</span> animal <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Cat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//此时animal是指向Cat类型的对象</span>
 <span class="token class-name">Cat</span> cat <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Cat</span><span class="token punctuation">)</span> animal<span class="token punctuation">;</span><span class="token comment">//编译类型和运行类型都是Cat</span>
 <span class="token class-name">Dog</span> <span class="token operator">=</span> dog <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Dog</span><span class="token punctuation">)</span> animal<span class="token punctuation">;</span><span class="token comment">//编译通过，运行报错，违反要求：要求父类的当前引用必须指向的是当前目标类型的对象。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
