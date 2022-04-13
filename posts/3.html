@@ -876,9 +876,15 @@
 <li>ArrayList扩容机制(使用IDEA的Debug功能看源码)</li>
 </ol>
 <ul>
-<li>ArrayList中维护了一个<strong>Object</strong>类型的数组elementData;<code>transient Object[] elementData；</code>//transient 表示短暂的，表示该属性不会被序列化</li>
-<li>当创建ArrayList对象时，如果使用的是无参构造器<code>ArrayList()</code>，则初始elementData容量为0，第1次添加，则扩容elementData为<strong>10</strong>，如需要再次扩容，则扩容elementData为1.5倍；<a target="_blank" rel="noopener" href="https://gitee.com/gqd000/blogimage/raw/master/img/202204061715922.svg">ArrayLis()无参构造器扩容源码分析图</a></li>
-<li>如果使用的是指定大小的构造器<code>ArrayList(int n)</code>，则初始elementData容量为指定大小，如果需要扩容，则直接扩容elementData为1.5倍。</li>
+<li><p>ArrayList中维护了一个<strong>Object</strong>类型的数组elementData;<code>transient Object[] elementData；</code>//transient 表示短暂的，表示该属性不会被序列化</p>
+</li>
+<li><p>当创建ArrayList对象时，如果使用的是无参构造器<code>ArrayList()</code>，则初始elementData容量为0，第1次添加，则扩容elementData为<strong>10</strong>，如需要再次扩容，则扩容elementData为1.5倍；<a target="_blank" rel="noopener" href="https://gitee.com/gqd000/blogimage/raw/master/img/202204061715922.svg">ArrayLis()无参构造器扩容源码分析图</a></p>
+</li>
+<li><p>ArrayLis()无参构造器扩容源码分析图</p>
+<p><img src="/images/loading.gif" data-original="https://gitee.com/gqd000/blogimage/raw/master/img/202204131537245.jpeg" alt="ArrayLis()无参构造器扩容源码分析图"></p>
+</li>
+<li><p>如果使用的是指定大小的构造器<code>ArrayList(int n)</code>，则初始elementData容量为指定大小，如果需要扩容，则直接扩容elementData为1.5倍。</p>
+</li>
 </ul>
 <h3 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h3><ol>
 <li><p>Veactor的注意事项</p>
