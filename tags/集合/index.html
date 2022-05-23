@@ -4,10 +4,10 @@
 
     <head>
         <!-- Hexo使用图床的方式加载在blog中加载图片，会在非本人的电脑或者手机端报“html访问图片资源403问题(http referrer) -->
-        <meta name="referrer" content="default" />
+        <!-- <meta name="referrer" content="never" /> -->
 
         <!-- 只给图片添加no-referrer头部 -->
-        <!-- <img referrer="no-referrer" src="/images/loading.gif" data-original="{{item.src}}" /> -->
+        <img referrer="no-referrer" src="/images/loading.gif" data-original="{{item.src}}" /> 
 
         <meta charset="utf-8">
         <meta name="keywords" content="标签: 集合, HTML,CSS,LeetCode,java,算法,电影,音乐,书,等等。">
