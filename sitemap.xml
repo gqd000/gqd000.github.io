@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.hexoblog.gq/posts/9526.html</loc>
+    
+    <lastmod>2022-07-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://www.hexoblog.gq/posts/1f0.html</loc>
+    
+    <lastmod>2022-07-05</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.hexoblog.gq/posts/1.html</loc>
     
     <lastmod>2022-07-05</lastmod>
@@ -290,6 +304,27 @@
     <priority>0.6</priority>
   </url>
   
+  <url>
+    <loc>https://www.hexoblog.gq/tags/ELK/</loc>
+    <lastmod>2022-07-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.hexoblog.gq/tags/Redis/</loc>
+    <lastmod>2022-07-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.hexoblog.gq/tags/SpringBoot/</loc>
+    <lastmod>2022-07-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
 
   
   <url>
@@ -350,6 +385,13 @@
   
   <url>
     <loc>https://www.hexoblog.gq/categories/Java%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2022-07-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.hexoblog.gq/categories/%E5%90%8E%E7%AB%AF/</loc>
     <lastmod>2022-07-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
