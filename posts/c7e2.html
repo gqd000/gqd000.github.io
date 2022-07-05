@@ -537,7 +537,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-14
+                    2022-07-05
                 </div>
                 
 
@@ -583,7 +583,7 @@
 <li><p>①首先去<a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">Node.js官网</a>下载安装程序，一路默认即可(路径可根据自己的需求更改)，然后安装。</p>
 </li>
 <li><p>②测试是否安装成功及环境变量是否正确。在cmd命令行输入：<code>node -v</code>查看效果。若出现：</p>
-<p><img src="/images/loading.gif" data-original="https://gitee.com/gqd000/blogimage/raw/master/img/image-20210413160808990.png" alt="image-20210413160808990"></p>
+<p><img src="/images/loading.gif" data-original="https://cdn.staticaly.com/gh/gqd000/BlogImgs@master/imgs/image-20210413160808990.png" alt="image-20210413160808990"></p>
 <p>则说明环境变量添加完成，进行下一步。如果报错，则需要手动添加环境变量：右击点击我的电脑 -&gt; 属性 -&gt; 高级系统设置 -&gt; 环境变量，在系统变量下找到名为 path 的变量名，双击Path，点击添加，将node.js的安装复制进去即可。</p>
 </li>
 <li><p>③改npm的源(将npm的源改为国内镜像了提高访问和下载速度)</p>
@@ -607,32 +607,32 @@ git config --global user.email "此处填写你Github的邮箱"<span aria-hidden
 <li><p>②SSH连接。在桌面点击鼠标右键，点击 <code>Git Bash Here</code>。输入以下代码并一直回车：</p>
 <pre class="line-numbers language-none"><code class="language-none">ssh-keygen -t rsa -C “your_email@example.com” # 引号里填你的Github注册邮箱<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>③提交SSH私钥。在 C:/Users/[Windows用户名] 目录下找到名为.ssh 的文件夹，找到并用记事本打开<code>id_rsa.pub</code>，复制里面的内容。然后到GitHub上点击右上角头像，进入settings：</p>
-<p><img src="/images/loading.gif" data-original="https://gitee.com/gqd000/blogimage/raw/master/img/image-20210413161348594.png" alt="image-20210413161348594"></p>
+<p><img src="/images/loading.gif" data-original="https://cdn.staticaly.com/gh/gqd000/BlogImgs@master/imgs/image-20210413161348594.png" alt="image-20210413161348594"></p>
 </li>
 <li><p>④新建SSH密钥：</p>
-<p><img src="/images/loading.gif" data-original="https://gitee.com/gqd000/blogimage/raw/master/img/image-20210413161538670.png" alt="image-20210413161538670"></p>
+<p><img src="/images/loading.gif" data-original="https://cdn.staticaly.com/gh/gqd000/BlogImgs@master/imgs/image-20210413161538670.png" alt="image-20210413161538670"></p>
 </li>
-<li><p>⑤添加密钥：<img src="/images/loading.gif" data-original="https://gitee.com/gqd000/blogimage/raw/master/img/image-20210413161824201.png" alt="image-20210413161824201"></p>
+<li><p>⑤添加密钥：<img src="/images/loading.gif" data-original="https://cdn.staticaly.com/gh/gqd000/BlogImgs@master/imgs/image-20210413161824201.png" alt="image-20210413161824201"></p>
 </li>
 </ul>
 <h2 id="4-测试是否连成功"><a href="#4-测试是否连成功" class="headerlink" title="4. 测试是否连成功"></a>4. 测试是否连成功</h2><ul>
-<li>在<code>Git Bush</code>或者<code>cmd</code>输入<code>ssh -T git@github.com</code>，如果出现以下语句则说明连接成功：<img src="/images/loading.gif" data-original="https://gitee.com/gqd000/blogimage/raw/master/img/image-20210413180723039.png" alt="image-20210413180723039"></li>
+<li>在<code>Git Bush</code>或者<code>cmd</code>输入<code>ssh -T git@github.com</code>，如果出现以下语句则说明连接成功：<img src="/images/loading.gif" data-original="https://cdn.staticaly.com/gh/gqd000/BlogImgs@master/imgs/image-20210413180723039.png" alt="image-20210413180723039"></li>
 </ul>
 <p><strong>注意事项：</strong></p>
 <ol>
 <li><p>仓库名称尽量命名为**(example).github.io**(example)为GitHub账户名，方便Hexo部署；</p>
 </li>
 <li><p>建完仓库后如果分支不是master，则需新建master分支：</p>
-<p><img src="/images/loading.gif" data-original="https://gitee.com/gqd000/blogimage/raw/master/img/image-20210413164650054.png" alt="image-20210413164650054"></p>
+<p><img src="/images/loading.gif" data-original="https://cdn.staticaly.com/gh/gqd000/BlogImgs@master/imgs/image-20210413164650054.png" alt="image-20210413164650054"></p>
 </li>
 <li><p>点击仓库的Settings，进入Pages：</p>
-<p><img src="/images/loading.gif" data-original="https://gitee.com/gqd000/blogimage/raw/master/img/image-20210413164208605.png" alt="image-20210413164208605"></p>
+<p><img src="/images/loading.gif" data-original="https://cdn.staticaly.com/gh/gqd000/BlogImgs@master/imgs/image-20210413164208605.png" alt="image-20210413164208605"></p>
 </li>
 <li><p>将默认分支设置为master：</p>
-<p><img src="/images/loading.gif" data-original="https://gitee.com/gqd000/blogimage/raw/master/img/image-20210413165433792.png" alt="image-20210413165433792"></p>
+<p><img src="/images/loading.gif" data-original="https://cdn.staticaly.com/gh/gqd000/BlogImgs@master/imgs/image-20210413165433792.png" alt="image-20210413165433792"></p>
 </li>
 <li><p>将Page指向master分支后save：</p>
-<p><img src="/images/loading.gif" data-original="https://gitee.com/gqd000/blogimage/raw/master/img/image-20210413164758578.png" alt="image-20210413164208605"></p>
+<p><img src="/images/loading.gif" data-original="https://cdn.staticaly.com/gh/gqd000/BlogImgs@master/imgs/image-20210413164758578.png" alt="image-20210413164208605"></p>
 </li>
 <li><p>此时以及可以通过：<code>https://example.github.io</code>(example为GitHub用户名)访问网页了，如果有<code>readme</code>文档则显示<code>readme</code>文档内容，否则显示<strong>404 File not found</strong><span class="github-emoji"><span>😂</span><img src="/images/loading.gif" data-original="https://github.githubassets.com/images/icons/emoji/unicode/1f602.png?v8" aria-hidden="true" onerror="this.parent.classList.add('github-emoji-fallback')"></span>。至此，GitHub Pages页面创建完成。</p>
 </li>
@@ -664,8 +664,8 @@ author: 作者，在文章中显示
 language: 博客语言语种，简体中文为：zh-CN   
 timezone: 时区（可不用填，hexo默认使用电脑时区）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>修改url：<img src="/images/loading.gif" data-original="https://gitee.com/gqd000/blogimage/raw/master/img/image-20210413220354674.png" alt="image-20210413220354674"></p>
-<p>拉到文件最底部，在 deploy 下面添加一个 repo 项：<img src="/images/loading.gif" data-original="https://gitee.com/gqd000/blogimage/raw/master/img/image-20210413220753293.png" alt="image-20210413220753293"></p>
+<p>修改url：<img src="/images/loading.gif" data-original="https://cdn.staticaly.com/gh/gqd000/BlogImgs@master/imgs/image-20210413220354674.png" alt="image-20210413220354674"></p>
+<p>拉到文件最底部，在 deploy 下面添加一个 repo 项：<img src="/images/loading.gif" data-original="https://cdn.staticaly.com/gh/gqd000/BlogImgs@master/imgs/image-20210413220753293.png" alt="image-20210413220753293"></p>
 </li>
 <li><p>③部署到GitHub 上。运行以下命令：</p>
 <pre class="line-numbers language-none"><code class="language-none"># Hexo会根据配置文件渲染出一套静态页面

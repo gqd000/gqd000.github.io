@@ -537,7 +537,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-15
+                    2022-07-05
                 </div>
                 
 
@@ -575,12 +575,12 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="一、预备工作"><a href="#一、预备工作" class="headerlink" title="一、预备工作"></a>一、预备工作</h1><h2 id="1-下载VMware并安装"><a href="#1-下载VMware并安装" class="headerlink" title="1. 下载VMware并安装"></a>1. 下载<a target="_blank" rel="noopener" href="https://www.vmware.com/cn/products/workstation-pro/workstation-pro-evaluation.html"><strong>VMware</strong></a>并安装</h2><p><del>(许可证：ZF3R0-FHED2-M80TY-8QYGC-NPKYF)</del></p>
-<h2 id="2-下载Ubuntu镜像"><a href="#2-下载Ubuntu镜像" class="headerlink" title="2. 下载Ubuntu镜像"></a>2. 下载<a target="_blank" rel="noopener" href="https://ubuntu.com/download/desktop">Ubuntu镜像</a></h2><p><img src="/images/loading.gif" data-original="https://gitee.com/gqd000/blogimage/raw/master/img/v2-0528c3ad69dfe7d8567e5f4bc99bcc5b_1440w.jpg" alt="Ubuntu20.04"></p>
+<h2 id="2-下载Ubuntu镜像"><a href="#2-下载Ubuntu镜像" class="headerlink" title="2. 下载Ubuntu镜像"></a>2. 下载<a target="_blank" rel="noopener" href="https://ubuntu.com/download/desktop">Ubuntu镜像</a></h2><p><img src="/images/loading.gif" data-original="https://cdn.staticaly.com/gh/gqd000/BlogImgs@master/imgs/v2-0528c3ad69dfe7d8567e5f4bc99bcc5b_1440w.jpg" alt="Ubuntu20.04"></p>
 <h1 id="二、-新系统调整"><a href="#二、-新系统调整" class="headerlink" title="二、 新系统调整"></a>二、 新系统调整</h1><h2 id="1-软件换源"><a href="#1-软件换源" class="headerlink" title="1. 软件换源"></a>1. 软件换源</h2><ul>
 <li><p>在换源之前，要先对原来的源进行备份，在Ubuntu中，软件源存在/etc/apt/sources.list中，用以下命令备份：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">cp</span> /etc/apt/sources.list /etc/apt/sources.list.bak<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>打卡文件 <code>/etc/apt/sources.list</code>：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> gedit /etc/apt/sources.list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo gedit /etc/apt/sources.list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>删除文件里的内容，并复制要换的源（如阿里源）：</p>
 <pre class="line-numbers language-none"><code class="language-none"># 阿里源
 deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
@@ -622,9 +622,9 @@ deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restri
 deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse
 deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restricted universe multiverse<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>更新源</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">apt-get</span> update<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt-get update<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>更新软件</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">apt-get</span> upgrade<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo apt-get upgrade<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>大功告成！</p>
 </li>
 </ul>
@@ -633,10 +633,10 @@ deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-proposed main restri
 </blockquote>
 <ul>
 <li><p>将Vmware相关的服务停止，如下：</p>
-<p><img src="/images/loading.gif" data-original="https://gitee.com/gqd000/blogimage/raw/master/img/image-20210915225708434.png" alt="image-20210915225708434"></p>
+<p><img src="/images/loading.gif" data-original="https://cdn.staticaly.com/gh/gqd000/BlogImgs@master/imgs/image-20210915225708434.png" alt="image-20210915225708434"></p>
 </li>
 <li><p>删除注册表</p>
-<p><img src="/images/loading.gif" data-original="https://gitee.com/gqd000/blogimage/raw/master/img/image-20210915231814731.png" alt="image-20210915231814731"></p>
+<p><img src="/images/loading.gif" data-original="https://cdn.staticaly.com/gh/gqd000/BlogImgs@master/imgs/image-20210915231814731.png" alt="image-20210915231814731"></p>
 </li>
 <li><p>在任务管理器结束Vmware相关的进程</p>
 </li>
