@@ -14,7 +14,7 @@
         <!-- <img referrer="no-referrer" src="/images/loading.gif" data-original="{{item.src}}" /> -->
 
         <meta charset="utf-8">
-        <meta name="keywords" content="JVM相关, HTML,CSS,LeetCode,java,算法,电影,音乐,书,等等。">
+        <meta name="keywords" content="JVM（一）：内存结构, HTML,CSS,LeetCode,java,算法,电影,音乐,书,等等。">
         <meta name="description" content="记录生活,分享生活,记录知识,分享知识。">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -27,7 +27,7 @@
 
 
             <title>
-                JVM相关 | 一袖南烟顾
+                JVM（一）：内存结构 | 一袖南烟顾
             </title>
             <link rel="icon" type="image/png" href="/favicon.png">
 
@@ -388,12 +388,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">JVM相关</h1>
+                    <h1 class="description center-align post-title">JVM（一）：内存结构</h1>
                 </div>
             </div>
         </div>
@@ -507,12 +507,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/JVM/">
+                                <span class="chip bg-color">JVM</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                后端
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -535,14 +548,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    3.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    12 分
                 </div>
                 
 
@@ -565,7 +578,377 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="JVM（一）：内存结构"><a href="#JVM（一）：内存结构" class="headerlink" title="JVM（一）：内存结构"></a>JVM（一）：内存结构</h1><h2 id="一、JVM概述"><a href="#一、JVM概述" class="headerlink" title="一、JVM概述"></a>一、JVM概述</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>Java Virtual Machine，JAVA程序的<strong>运行环境</strong>（JAVA二进制字节码的运行环境）</p>
+<h3 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h3><ul>
+<li>一次编写，到处运行</li>
+<li>自动内存管理，垃圾回收机制</li>
+<li>数组下标越界检查</li>
+</ul>
+<h3 id="JVM-JRE-JDK的比较"><a href="#JVM-JRE-JDK的比较" class="headerlink" title="JVM JRE JDK的比较"></a>JVM JRE JDK的比较</h3><img src="/images/loading.gif" data-original="https://cdn.staticaly.com/gh/gqd000/BlogImgs@master/imgs/20200608150422.png" alt="img" style="zoom: 67%;">
+
+
+
+<h2 id="二、内存结构"><a href="#二、内存结构" class="headerlink" title="二、内存结构"></a>二、内存结构</h2><h3 id="整体结构"><a href="#整体结构" class="headerlink" title="整体结构"></a>整体结构</h3><img src="/images/loading.gif" data-original="https://cdn.staticaly.com/gh/gqd000/BlogImgs@master/imgs/20200608150440.png" alt="img" style="zoom:67%;">
+
+<h4 id="程序计数器PC"><a href="#程序计数器PC" class="headerlink" title="程序计数器PC"></a>程序计数器PC</h4><ol>
+<li>定义：Program Counter Register 程序计数器（寄存器）</li>
+<li>作用：==记录JVM中要执行的下一条指令的地址==</li>
+<li>特点：<ul>
+<li>线程私有<ul>
+<li>CPU会为每个线程分配时间片，当当前线程的时间片使用完以后，CPU就会去执行另一个线程中的代码</li>
+<li>程序计数器是<strong>每个线程</strong>所<strong>私有</strong>的，当另一个线程的时间片用完，又返回来执行当前线程的代码时，通过程序计数器可以知道应该执行哪一句指令</li>
+</ul>
+</li>
+<li>不会存在内存溢出</li>
+</ul>
+</li>
+</ol>
+<h4 id="虚拟机栈"><a href="#虚拟机栈" class="headerlink" title="虚拟机栈"></a>虚拟机栈</h4><ol>
+<li><p>定义：</p>
+<ul>
+<li>每个<strong>线程</strong>运行所需要的内存空间称为<strong>虚拟机栈</strong>；</li>
+<li>每个栈由多个<strong>栈帧</strong>组成，对应着每次调用方法时所占用的内存；</li>
+<li>每个线程只能有<strong>一个活动栈帧</strong>，对应着<strong>当前正在执行的方法</strong>，会处于虚拟机栈的<strong>栈顶</strong>。</li>
+</ul>
+</li>
+<li><p>调整栈空间大小：</p>
+<pre class="line-numbers language-none"><code class="language-none">-Xss空间大小
+-Xss8M<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li><p>实例：</p>
+<img src="/images/loading.gif" data-original="https://cdn.staticaly.com/gh/gqd000/BlogImgs@master/imgs/ec67b186c3e6a058aef02142aa9c7bb4.png" alt="image-20210828165515023" style="zoom: 80%;"></li>
+<li><p>常见问题辨析：</p>
+<ul>
+<li><p>垃圾回收是否涉及栈内存？</p>
+<ul>
+<li><strong>不需要</strong>，因为虚拟机栈中是由一个个栈帧组成的，在方法执行完毕后，对应的栈帧就会被弹出栈。所以无需通过垃圾回收机制去回收内存。</li>
+</ul>
+</li>
+<li><p>栈内存的分配越大越好吗？</p>
+<ul>
+<li>不是。因为<strong>物理内存是一定的</strong>，栈空间越大，会导致线程数越少。栈空间越大，也并不会让程序更快，只是有更大的栈空间，能让你做更多次的递归调用。</li>
+</ul>
+</li>
+<li><p>方法内的局部变量是否是线程安全的？</p>
+<ul>
+<li>如果方法内<strong>局部变量没有逃离方法的作用范围</strong>，则是<strong>线程安全</strong>的；</li>
+<li>如果如果<strong>局部变量引用了对象</strong>，并<strong>逃离了方法的作用范围</strong>，则需要考虑线程安全问题。</li>
+</ul>
+<p><strong>示例：</strong></p>
+<p><img src="/images/loading.gif" data-original="https://cdn.staticaly.com/gh/gqd000/BlogImgs@master/imgs/06c3e66ac1b6eebf901c3a7ced24d3f5.png" alt="image-20210828170729020" style="zoom: 50%;"><img src="/images/loading.gif" data-original="https://cdn.staticaly.com/gh/gqd000/BlogImgs@master/imgs/b88c6bc3e210eb85b468725a791d41a3.png" alt="image-20210828170618242" style="zoom: 50%;"></p>
+</li>
+</ul>
+</li>
+<li><p>栈内存溢出<strong>Java.lang.stackOverflowError</strong></p>
+<ul>
+<li>原因：<ul>
+<li>虚拟机栈中，<strong>栈帧过多</strong>（无限递归，或互相调用、无限循环）</li>
+<li>每个栈帧<strong>所占用过大</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>线程运行诊断</p>
+<p>以CUP占用过高为例：</p>
+<ul>
+<li>Linux环境下运行某些程序的时候，可能导致CPU的占用过高，这时需要定位占用CPU过高的线程<ul>
+<li><strong>top</strong>命令：查看是哪个<strong>进程</strong>占用CPU过高</li>
+<li><strong>ps H -eo pid, tid（线程id）, %cpu | grep 刚才通过top查到的进程号</strong> ：通过ps命令进一步查看是哪个线程占用CPU过高</li>
+<li><strong>jstack 进程id</strong> ：通过查看进程中的线程的nid，刚才通过ps命令看到的tid来<strong>对比定位问题代码</strong>，注意jstack查找出的线程id是<strong>16进制的</strong>，需要转换。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h4><p>native 本地方法</p>
+<p>本地方法栈，给本地方法的运行提供一个空间。jvm类并不是所有的方法都是java代码编写的，有些底层的方法就是通过c/c++实现的。而java可以调用这些底层方法来完成一些功能。在java调用这些底层方法时，就是运行在本地方法栈中。</p>
+<h4 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h4><ol>
+<li><p>定义：通过new关键字<strong>创建的对象</strong>都会被放在堆内存</p>
+</li>
+<li><p>特点：</p>
+<ul>
+<li><strong>所有线程共享</strong>，堆内存中的对象都需要<strong>考虑线程安全问题</strong></li>
+<li>有垃圾回收机制</li>
+</ul>
+</li>
+<li><p>调整堆空间大小</p>
+<pre class="line-numbers language-none"><code class="language-none">-Xmx空间大小
+-Xmx4G<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li><p>堆内存溢出：<strong>java.lang.OutofMemoryError</strong> ：java heap space.</p>
+</li>
+<li><p>堆内存诊断</p>
+<ol>
+<li>jps工具<ul>
+<li>查看当前系统中有哪些java进程</li>
+</ul>
+</li>
+<li>jmap工具<ul>
+<li>查看<strong>某一时刻</strong>堆内存占用情况</li>
+<li><code>jhsdb jmap --heap --pid 进程id</code></li>
+</ul>
+</li>
+<li>jconsole工具<ul>
+<li>图形界面的，多功能的监测工具，可以<strong>连续</strong>监测</li>
+</ul>
+</li>
+<li>堆内存调整指令参数<ul>
+<li>-Xmx容量大小</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h4><blockquote>
+<p><strong>方法区</strong>是一种规范，<strong>永久代</strong>和<strong>元空间</strong>都只是它的实现。</p>
+</blockquote>
+<ol>
+<li><p>结构</p>
+<img src="/images/loading.gif" data-original="https://cdn.staticaly.com/gh/gqd000/BlogImgs@master/imgs/20200608150547.png" alt="img" style="zoom:50%;"></li>
+<li><p>内存溢出</p>
+<ul>
+<li>JDK1.8前，会出现<strong>永久代</strong>（在方法区中）溢出；</li>
+<li>JDK1.8侯，会出现<strong>元空间</strong>（在本地内存中）溢出。</li>
+<li>调整元空间大小：<code>-XX:MaxMetaspaceSize=8m</code></li>
+</ul>
+</li>
+<li><p>常量池和运行时常量池</p>
+<ul>
+<li>常量池：就是一张表，虚拟机指令根据这张常量表找到要执行的类名、方法名、参数类型、字面量信息</li>
+<li>运行时常量池：常量池是<code>*.class</code>文件中的，当该<strong>类被加载以后</strong>，它的常量池信息就会<strong>放入运行时常量池</strong>，并把里面的<strong>符号地址变为真实地址</strong>。</li>
+</ul>
+</li>
+<li><p>通过反编译来查看类的信息</p>
+<ul>
+<li>进入java目录下，用<code>javac</code>编译java文件，如：<code>javac User.java</code>，生成二进制字节码：<code>User.class</code>文件；</li>
+<li>使用<code>javap</code>反汇编工具查看字节码文件，如：<code>javap -v User.class</code>，之后就可以看到字节码文件的详细内容了。</li>
+</ul>
+</li>
+<li><p>查看字节码文件示例：</p>
+<ul>
+<li><p>类的基本信息</p>
+<img src="/images/loading.gif" data-original="https://cdn.staticaly.com/gh/gqd000/BlogImgs@master/imgs/image-20220706195445216.png" alt="image-20220706195445216" style="zoom: 67%;"></li>
+<li><p>常量池</p>
+<img src="/images/loading.gif" data-original="https://cdn.staticaly.com/gh/gqd000/BlogImgs@master/imgs/image-20220706195532325.png" alt="image-20220706195532325" style="zoom: 50%;"></li>
+<li><p>虚拟机中执行编译的方法（**#号的内容需要在常量池中查找**，根据#及数字，可查到使用的内容）</p>
+<img src="/images/loading.gif" data-original="https://cdn.staticaly.com/gh/gqd000/BlogImgs@master/imgs/image-20220706195705470.png" alt="image-20220706195705470" style="zoom: 50%;"></li>
+</ul>
+</li>
+<li><p>串池StringTable:用来放字符串对象且里面的<strong>元素不重复</strong></p>
+<ul>
+<li><p>特征：</p>
+<ul>
+<li>常量池中的字符串仅是符号（类加载时加入串池），只有<strong>在被用到时才会转化为对象</strong>（懒加载）；</li>
+<li>利用串池的机制，来避免重复创建字符串对象；</li>
+<li>字符串<strong>变量</strong>拼接的原理是<strong>StringBuilder；</strong></li>
+<li>字符串<strong>常量</strong>拼接的原理是<strong>编译器优化；</strong></li>
+<li>可以使用<strong>intern方法</strong>，主动将串池中还没有的字符串对象放入串池中；</li>
+<li><strong>注意</strong>：无论是串池还是堆里面的字符串，都是对象。</li>
+</ul>
+</li>
+<li><p>串池使用示例：</p>
+<ul>
+<li><p>对于以下代码：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">StringTableStudy</span> <span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token class-name">String</span> a <span class="token operator">=</span> <span class="token string">"a"</span><span class="token punctuation">;</span> 
+		<span class="token class-name">String</span> b <span class="token operator">=</span> <span class="token string">"b"</span><span class="token punctuation">;</span>
+		<span class="token class-name">String</span> ab <span class="token operator">=</span> <span class="token string">"ab"</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 常量池中的信息，都会被加载到运行时常量池中，</span>
+<span class="token comment">// 这时 a b ab 都是常量池中的符号，还没有变为 java 字符串对象</span>
+<span class="token comment">// ldc #2 会把 a 符号变为 "a" 字符串对象</span>
+<span class="token comment">// ldc #3 会把 b 符号变为 "b" 字符串对象</span>
+<span class="token comment">// ldc #4 会把 ab 符号变为 "ab" 字符串对象</span>
+<span class="token comment">// 最终StringTable [“a”, “b”, “ab”]</span>
+
+<span class="token comment">//字节码文件内容为</span>
+<span class="token number">0</span><span class="token operator">:</span> ldc           #<span class="token number">2</span>                  <span class="token comment">// String a</span>
+<span class="token number">2</span><span class="token operator">:</span> astore_1
+<span class="token number">3</span><span class="token operator">:</span> ldc           #<span class="token number">3</span>                  <span class="token comment">// String b</span>
+<span class="token number">5</span><span class="token operator">:</span> astore_2
+<span class="token number">6</span><span class="token operator">:</span> ldc           #<span class="token number">4</span>                  <span class="token comment">// String ab</span>
+<span class="token number">8</span><span class="token operator">:</span> astore_3
+<span class="token number">9</span><span class="token operator">:</span> <span class="token keyword">return</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>字符串对象的创建都是<strong>懒惰的</strong>，只有当运行到那一行字符串且在串池中不存在的时候（如 ldc #2）时，该字符串才会被创建并放入串池中。</p>
+</blockquote>
+</li>
+<li><p>对于字符串拼接代码：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">StringTableStudy</span> <span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token class-name">String</span> a <span class="token operator">=</span> <span class="token string">"a"</span><span class="token punctuation">;</span>
+		<span class="token class-name">String</span> b <span class="token operator">=</span> <span class="token string">"b"</span><span class="token punctuation">;</span>
+		<span class="token class-name">String</span> ab <span class="token operator">=</span> <span class="token string">"ab"</span><span class="token punctuation">;</span>
+		<span class="token comment">//拼接字符串对象来创建新的字符串</span>
+		<span class="token class-name">String</span> ab2 <span class="token operator">=</span> a<span class="token operator">+</span>b<span class="token punctuation">;</span> 
+         <span class="token comment">//使用拼接字符串的方法创建字符串</span>
+		<span class="token class-name">String</span> ab3 <span class="token operator">=</span> <span class="token string">"a"</span> <span class="token operator">+</span> <span class="token string">"b"</span><span class="token punctuation">;</span>
+        
+        <span class="token comment">//结果为false,因为ab是存在于串池之中，ab2是由StringBuffer的toString方法所返回的一个对象，</span>
+        <span class="token comment">//存在于堆内存之中，不是同一个对象</span>
+		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ab <span class="token operator">==</span> ab2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//fasle</span>
+        
+        <span class="token comment">//结果为true,因为ab存在于串池之中，ab3直接引用串池中的 ab，是同一个对象</span>
+		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>ab <span class="token operator">==</span> ab3<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//true</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+
+<span class="token comment">//字节码文件</span>
+ 	  <span class="token class-name">Code</span><span class="token operator">:</span>
+      stack<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">,</span> locals<span class="token operator">=</span><span class="token number">6</span><span class="token punctuation">,</span> args_size<span class="token operator">=</span><span class="token number">1</span>
+         <span class="token number">0</span><span class="token operator">:</span> ldc           #<span class="token number">2</span>                  <span class="token comment">// String a</span>
+         <span class="token number">2</span><span class="token operator">:</span> astore_1
+         <span class="token number">3</span><span class="token operator">:</span> ldc           #<span class="token number">3</span>                  <span class="token comment">// String b</span>
+         <span class="token number">5</span><span class="token operator">:</span> astore_2
+         <span class="token number">6</span><span class="token operator">:</span> ldc           #<span class="token number">4</span>                  <span class="token comment">// String ab</span>
+         <span class="token number">8</span><span class="token operator">:</span> astore_3
+         <span class="token number">9</span><span class="token operator">:</span> <span class="token keyword">new</span>           #<span class="token number">5</span>                  <span class="token comment">// class java/lang/StringBuilder</span>
+        <span class="token number">12</span><span class="token operator">:</span> dup
+        <span class="token number">13</span><span class="token operator">:</span> invokespecial #<span class="token number">6</span>                  <span class="token comment">// Method java/lang/StringBuilder."&lt;init&gt;":()V</span>
+        <span class="token number">16</span><span class="token operator">:</span> aload_1
+        <span class="token comment">// 使用 StringBuilder 来实现字符串拼接</span>
+        <span class="token number">17</span><span class="token operator">:</span> invokevirtual #<span class="token number">7</span>                  <span class="token comment">// Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+        <span class="token number">20</span><span class="token operator">:</span> aload_2
+        <span class="token number">21</span><span class="token operator">:</span> invokevirtual #<span class="token number">7</span>                  <span class="token comment">// Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;</span>
+        <span class="token number">24</span><span class="token operator">:</span> invokevirtual #<span class="token number">8</span>            <span class="token comment">// Method java/lang/StringBuilder.toString:()Ljava/lang/String;</span>
+        <span class="token number">27</span><span class="token operator">:</span> astore        <span class="token number">4</span>
+        <span class="token comment">//ab3初始化时直接从串池中获取字符串</span>
+        <span class="token number">29</span><span class="token operator">:</span> ldc           #<span class="token number">4</span>                  <span class="token comment">// String ab</span>
+        <span class="token number">31</span><span class="token operator">:</span> astore        <span class="token number">5</span>
+        <span class="token number">33</span><span class="token operator">:</span> <span class="token keyword">return</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>由此可见：</p>
+<ul>
+<li>通过拼接的方式来创建字符串的<strong>过程</strong>是：<code>StringBuilder().append(“a”).append(“b”).toString()</code>最后的toString方法的返回值是一个<strong>新的字符串</strong>，但字符串的<strong>值</strong>和拼接的字符串一致，但是两个不同的字符串，<strong>一个存在于串池之中，一个存在于堆内存之中</strong>；</li>
+<li>使用<strong>拼接字符串常量</strong>的方法来创建新的字符串时，因为<strong>内容是常量，javac在编译期会进行优化，结果已在编译期确定为ab</strong>，而创建ab的时候已经在串池中放入了“ab”，所以ab3直接从串池中获取值，所以进行的操作和 ab = “ab” 一致；</li>
+<li>使用<strong>拼接字符串变量</strong>的方法来创建新的字符串时，因为内容是变量，只能<strong>在运行期确定它的值，所以需要使用StringBuilder来创建</strong>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>intern方法：调用字符串对象的intern方法，会将该字符串对象尝试放入到串池中</p>
+<ul>
+<li>在<strong>JDK1.8</strong>中：如果串池中没有该字符串对象，则放入成功；如果有该字符串对象，则放入失败，无论放入是否成功，都会返回<strong>串池中</strong>的字符串对象，此时如果调用intern方法成功，堆内存与串池中的字符串对象是同一个对象；如果失败，则不是同一个对象。</li>
+<li>在<strong>JDK1.6</strong>中：如果串池中没有该字符串对象，会将该字符串对象<strong>复制</strong>一份，再放入到串池中；如果有该字符串对象，则放入失败，无论放入是否成功，都会返回<strong>串池中</strong>的字符串对象，此时无论调用intern方法成功与否，串池中的字符串对象和堆内存中的字符串对象<strong>都不是同一个对象</strong>。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>String Table位置</p>
+<ul>
+<li><p>在1.6之前。StringTable在方法区永久代中，但是放在这之中，虚拟机只会在full GC时才会对StringTable进行垃圾回收。但是其实StringTable的操作是非常频繁的，如果没有即使进行垃圾回收，容易造成永久代空间不足。</p>
+</li>
+<li><p>在1.8后，StringTable放在了堆中，使其垃圾回收的效率更高。</p>
+</li>
+</ul>
+</li>
+<li><p>StringTable垃圾回收</p>
+<p>StringTable在内存紧张时，会清理一些未引用的字符串常量。</p>
+</li>
+<li><p>StringTable调优</p>
+<ul>
+<li>添加桶的个数：StringTable的数据结构实现是哈希表，调优即对哈希表的桶的个数的调整，桶的个数越多时，哈希表查找更快。使用：<code>-XX:StringTableSize=xxxx</code>调整桶的个数。</li>
+<li>使用intern方法：可以通过intern方法<strong>减少重复入池</strong></li>
+</ul>
+</li>
+</ol>
+<h4 id="直接内存-DirectBuffer"><a href="#直接内存-DirectBuffer" class="headerlink" title="直接内存(DirectBuffer)"></a>直接内存(DirectBuffer)</h4><ol>
+<li><p>特征：</p>
+<ul>
+<li>属于操作系统，常见于NIO操作时，<strong>用于数据缓冲区</strong></li>
+<li>分配回收成本较高，但读写性能高</li>
+<li>不受JVM内存回收管理</li>
+</ul>
+</li>
+<li><p>直接内存是操作系统和Java代码<strong>都可以访问的一块区域</strong>，无需将代码从系统内存复制到Java堆内存，从而提高了效率，如下图两种文件读取方式的流程：</p>
+<p>正常流程：</p>
+<img src="/images/loading.gif" data-original="https://cdn.staticaly.com/gh/gqd000/BlogImgs@master/imgs/20200608150715.png" alt="img" style="zoom:50%;">
+
+<p>使用直接内存：</p>
+<img src="/images/loading.gif" data-original="https://cdn.staticaly.com/gh/gqd000/BlogImgs@master/imgs/20200608150736.png" alt="img" style="zoom:50%;"></li>
+<li><p>申请与释放原理</p>
+<blockquote>
+<p>直接内存的申请使用<code>ByteBuffer</code>申请，回收不是通过JVM的垃圾回收来释放的，而是通过<strong>unsafe.freeMemory</strong>来手动释放</p>
+</blockquote>
+<p>相关代码如下：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//通过ByteBuffer申请1M的直接内存</span>
+<span class="token class-name">ByteBuffer</span> byteBuffer <span class="token operator">=</span> <span class="token class-name">ByteBuffer</span><span class="token punctuation">.</span><span class="token function">allocateDirect</span><span class="token punctuation">(</span>_1M<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//allocateDirect的实现</span>
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">ByteBuffer</span> <span class="token function">allocateDirect</span><span class="token punctuation">(</span><span class="token keyword">int</span> capacity<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">DirectByteBuffer</span><span class="token punctuation">(</span>capacity<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>DirectByteBuffer类(在此类中用<code>unsafe.allocateMemory</code>申请内存)：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">DirectByteBuffer</span><span class="token punctuation">(</span><span class="token keyword">int</span> cap<span class="token punctuation">)</span> <span class="token punctuation">{</span>   <span class="token comment">// package-private</span>
+   
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> cap<span class="token punctuation">,</span> cap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">boolean</span> pa <span class="token operator">=</span> VM<span class="token punctuation">.</span><span class="token function">isDirectMemoryPageAligned</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> ps <span class="token operator">=</span> <span class="token class-name">Bits</span><span class="token punctuation">.</span><span class="token function">pageSize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">long</span> size <span class="token operator">=</span> <span class="token class-name">Math</span><span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token number">1L</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">long</span><span class="token punctuation">)</span>cap <span class="token operator">+</span> <span class="token punctuation">(</span>pa <span class="token operator">?</span> ps <span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">Bits</span><span class="token punctuation">.</span><span class="token function">reserveMemory</span><span class="token punctuation">(</span>size<span class="token punctuation">,</span> cap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">long</span> base <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        <span class="token comment">//申请内存</span>
+        base <span class="token operator">=</span> unsafe<span class="token punctuation">.</span><span class="token function">allocateMemory</span><span class="token punctuation">(</span>size<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">OutOfMemoryError</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Bits</span><span class="token punctuation">.</span><span class="token function">unreserveMemory</span><span class="token punctuation">(</span>size<span class="token punctuation">,</span> cap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">throw</span> x<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    unsafe<span class="token punctuation">.</span><span class="token function">setMemory</span><span class="token punctuation">(</span>base<span class="token punctuation">,</span> size<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token keyword">byte</span><span class="token punctuation">)</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>pa <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>base <span class="token operator">%</span> ps <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Round up to page boundary</span>
+        address <span class="token operator">=</span> base <span class="token operator">+</span> ps <span class="token operator">-</span> <span class="token punctuation">(</span>base <span class="token operator">&amp;</span> <span class="token punctuation">(</span>ps <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        address <span class="token operator">=</span> base<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">//通过虚引用，来实现直接内存的释放，this为虚引用的实际对象</span>
+    cleaner <span class="token operator">=</span> <span class="token class-name">Cleaner</span><span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Deallocator</span><span class="token punctuation">(</span>base<span class="token punctuation">,</span> size<span class="token punctuation">,</span> cap<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    att <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这里调用了一个Cleaner的create方法，且后台线程还会对虚引用的对象监测，如果虚引用的实际对象（这里是DirectByteBuffer）被回收以后，就会调用Cleaner的clean方法,通过<code>unsafe.freeMemory</code>，来清除直接内存中占用的内存。</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">clean</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token comment">//调用run方法</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>thunk<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token keyword">final</span> <span class="token class-name">Throwable</span> var2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">AccessController</span><span class="token punctuation">.</span><span class="token function">doPrivileged</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">PrivilegedAction</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Void</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">public</span> <span class="token class-name">Void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token class-name">System</span><span class="token punctuation">.</span>err <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                        <span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">"Cleaner terminated abnormally"</span><span class="token punctuation">,</span> var2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+
+                    <span class="token class-name">System</span><span class="token punctuation">.</span><span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        
+<span class="token comment">//对应对象的run方法</span>
+<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>address <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Paranoia</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">//释放直接内存中占用的内存</span>
+    unsafe<span class="token punctuation">.</span><span class="token function">freeMemory</span><span class="token punctuation">(</span>address<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    address <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token class-name">Bits</span><span class="token punctuation">.</span><span class="token function">unreserveMemory</span><span class="token punctuation">(</span>size<span class="token punctuation">,</span> capacity<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>      <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>直接内存的回收机制总结</p>
+<ul>
+<li>使用了Unsafe类来完成直接内存的分配回收，回收需要主动调用freeMemory方法；</li>
+<li>ByteBuffer的实现内部使用了Cleaner（虚引用）来检测ByteBuffer。一旦ByteBuffer被垃圾回收，那么会由ReferenceHandler来调用Cleaner的clean方法调用freeMemory来释放内存。</li>
+</ul>
+</li>
+</ol>
+
                 
             </div>
             <hr/>
@@ -591,7 +974,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://www.hexoblog.gq/posts/833.html">https://www.hexoblog.gq/posts/833.html</a>
+                    <a href="https://www.hexoblog.gq/posts/1aa6.html">https://www.hexoblog.gq/posts/1aa6.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -628,7 +1011,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/JVM/">
+                                    <span class="chip bg-color">JVM</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -938,19 +1325,19 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/posts/833.html">
+                <a href="/posts/1aa6.html">
                     <div class="card-image">
                         
                         
-                        <img src="/images/loading.gif" data-original="/medias/featureimages/4.jpg" class="responsive-img" alt="JVM相关">
+                        <img src="/images/loading.gif" data-original="/medias/featureimages/2.jpg" class="responsive-img" alt="JVM（一）：内存结构">
                         
-                        <span class="card-title">JVM相关</span>
+                        <span class="card-title">JVM（一）：内存结构</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            JVM：内存结构
                         
                     </div>
                     <div class="publish-info">
@@ -959,13 +1346,25 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            一袖南烟顾
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%90%8E%E7%AB%AF/" class="post-category">
+                                    后端
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JVM/">
+                        <span class="chip bg-color">JVM</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1180,7 +1579,7 @@
                                     <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
                                     <br>
                                     
-                                        &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span class="white-color">43.3k</span>&nbsp;字
+                                        &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span class="white-color">46.5k</span>&nbsp;字
                                         
                                             
                                                 
