@@ -207,6 +207,27 @@
   </url>
   
   <url>
+    <loc>https://www.hexoblog.gq/tags/test/</loc>
+    <lastmod>2022-07-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.hexoblog.gq/tags/Java/</loc>
+    <lastmod>2022-07-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.hexoblog.gq/tags/IDEA-LeetCode/</loc>
+    <lastmod>2022-07-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.hexoblog.gq/tags/Redis/</loc>
     <lastmod>2022-07-06</lastmod>
     <changefreq>daily</changefreq>
@@ -221,27 +242,6 @@
   </url>
   
   <url>
-    <loc>https://www.hexoblog.gq/tags/Java/</loc>
-    <lastmod>2022-07-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.hexoblog.gq/tags/test/</loc>
-    <lastmod>2022-07-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.hexoblog.gq/tags/IDEA-LeetCode/</loc>
-    <lastmod>2022-07-06</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.hexoblog.gq/tags/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2022-07-06</lastmod>
     <changefreq>daily</changefreq>
@@ -249,14 +249,14 @@
   </url>
   
   <url>
-    <loc>https://www.hexoblog.gq/tags/Linux%E7%9B%B8%E5%85%B3/</loc>
+    <loc>https://www.hexoblog.gq/tags/git/</loc>
     <lastmod>2022-07-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.hexoblog.gq/tags/git/</loc>
+    <loc>https://www.hexoblog.gq/tags/Linux%E7%9B%B8%E5%85%B3/</loc>
     <lastmod>2022-07-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -377,14 +377,14 @@
   </url>
   
   <url>
-    <loc>https://www.hexoblog.gq/categories/Linux%E7%9B%B8%E5%85%B3/</loc>
+    <loc>https://www.hexoblog.gq/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2022-07-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.hexoblog.gq/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>https://www.hexoblog.gq/categories/Linux%E7%9B%B8%E5%85%B3/</loc>
     <lastmod>2022-07-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
